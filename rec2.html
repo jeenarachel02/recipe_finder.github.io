@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+    }
+
+    nav {
+        display: flex;
+        justify-content: right;
+        background-color: #444;
+        padding: 10px;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        transition: color 0.3s;
+    }
+    nav a:hover {
+        color: #ff0000; /* Change the color to your desired hover color */
+    }
+    header{
+        text-align: center;
+        color: white;
+    }
+    #Home {
+        text-align: center;
+    }
+
+    h1 {
+        color: black;
+    }
+
+    #Home .left,
+    #Home .right {
+        width: 50%;
+        height: 600px;
+        padding: 70px;
+        box-sizing: border-box;
+        color: #fff;
+    }
+
+    #Home .left {
+        float: left;
+        background-color: #333;
+    }
+
+    #Home .right {
+        float: right;
+        background-image: url("https://img.freepik.com/free-photo/silhouette-plate-tableware_23-2147694061.jpg?size=626&ext=jpg&ga=GA1.1.2042851725.1701590578&semt=aishttps://img.freepik.com/premium-photo/sandwich-black-background-ingredients-fly-air-empty-space-text-sandwich-with-vetchina-vegetables_235573-749.jpg?size=626&ext=jpg&ga=GA1.1.1979495211.1684877727&semt=ais");
+        background-size: cover;
+        background-color: #d59292;
+    }
+    #Home .left h1{
+        text-align: center;
+        font-size:50px;
+        font-family:verdana;
+        color: #fff;
+    }
+    #Home .left p {
+        text-align: left;
+    }
+
+    #Home .right p {
+        text-align: center;
+    }
+
+    .Home {
+        color: rgb(19, 18, 18);
+        padding-left: 150px;
+        text-align: center;
+        height: 500px;
+        width: 500px;
+    }
+    #Recipes {
+    text-align: center;
+    background-color: #222;
+    padding-top: 50px; /* Adjust the padding as needed */
+}
+
+
+    #searchForm {
+        display: inline-block; /* Make the form an inline block */
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        width: 500px;
+        height: 200px;
+        text-align: center; /* Align form content to the left within the centered box */
+        padding: 20px; /* Add padding to the form content */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+    button{
+        width: 400px;
+        margin-top: 20px;
+        padding-left: 20px;
+        text-align: center;
+        background-color: #f7f2f2;
+        color: #222;
+    }
+    #searchForm button:hover {
+        background-color:#545151 /* Your desired hover color */;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#Home">Home</a>
+        <a href="#About">Recipe</a>
+        <a href="#Recipes">About</a>
+        
+    </nav>
+    <section id="Home">
+        <div class="left">
+            <h1>Recipe Finder</h1>
+            <p>Welcome to Recipe Finder,Our mission is to make cooking a delightful experience for everyone, whether you're a seasoned chef or a kitchen novice.<br> Explore our collection of handpicked recipes, discover new flavors, and embark on a culinary journey with us.
+            <br>Recipe Finder is more than just a recipe platform – it's a community of food enthusiasts sharing a passion for good food.<br> Join us in celebrating the art of cooking and create mouthwatering memories in your kitchen.</p>
+
+        </div>
+        <div class="right">
+        </div>
+    </section>
+    <section id="Recipes">
+        <div id="searchForm">
+            <label for="keywords">Keywords:</label>
+            <input type="text" id="keywords" placeholder="Enter keywords">
+            <label for="cuisine">Cuisine:</label>
+            <select id="cuisine">
+                <option value="all">All</option>
+                <option value="italian">Italian</option>
+                <option value="indian">Indian</option>
+                <!-- Add more cuisines as needed -->
+            </select>
+            <br>
+            <button type="button" onclick="searchRecipes()">Search</button>
+        </div>
+    </section>
+    <section id="About">
+
+    </section>
+    
+    <ul id="recipeList"></ul>
+
+    <script>
+        function searchRecipes() {
+            // Fetch and display recipes based on user input (you need to implement this)
+            // For simplicity, let's assume you have a function fetchRecipes() that returns a list of recipes
+            const recipes = fetchRecipes();
+            
+            // Display the recipes in the #recipeList element
+            const recipeListElement = document.getElementById("recipeList");
+            recipeListElement.innerHTML = "";
+
+            recipes.forEach(recipe => {
+                const listItem = document.createElement("li");
+                listItem.classList.add("recipeItem");
+                listItem.textContent = recipe.name; // Adjust this based on your recipe structure
+                recipeListElement.appendChild(listItem);
+            });
+        }
+    </script>
+
+</body>
+</html>
